@@ -28,9 +28,7 @@ function App() {
                 {/* Wildcrd sign (*) Auch in Css */}
                 <Route path="*" element={<NotFoundPage/>}/>
             </Route>
-
-
-
+            
           </Routes>
         </BrowserRouter>
 
