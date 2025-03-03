@@ -25,6 +25,12 @@ function App() {
                 <Route index element={<HomePage/>} />
                 <Route path="/about" element={<AboutPage/>} />
                 <Route path="/meals" element={<MealsPage/>} />
+
+                {/* ToDo: Route mit Params Einsellung */}
+                <Route path="/meals/:id" element={<MealsDetailsPage/>} />
+
+
+
                 {/* Wildcrd sign (*) Auch in Css */}
                 <Route path="*" element={<NotFoundPage/>}/>
             </Route>
