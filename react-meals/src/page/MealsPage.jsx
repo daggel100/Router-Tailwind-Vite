@@ -8,7 +8,7 @@ import { fetchData } from "../utileties/apiFetch";
 // "https://www.themealdb.com/api/json/v1/1/search.php?f=a"
 const MealsPage = () => {
 
-  const [essen, setEssen] = useState([]);
+  const [meals, setMeals] = useState([]);
 
   const mealsUrl = "https://www.themealdb.com/api/json/v1/1/search.php?f=a";
 
@@ -21,7 +21,7 @@ const MealsPage = () => {
         const data = await fetchData(mealsUrl);
         console.log(data.meals);
         
-        setEssen(data.meals);
+        setMeals(data.meals);
       } 
       catch (error) 
       {
@@ -39,13 +39,17 @@ const MealsPage = () => {
     <div className="container mx-auto p-4">
 
       {
-        essen.length > 0 ? (
-          essen.map((food) =>  <p key={food.idMeal} >{food.strMeal}</p>)
+        meals.length > 0 ? (
+          meals.map((food) =>  
+          <>  <p key={food.idMeal} >
+            {food.strMeal}</p> 
+            <CardItemComponent food={food}/> 
+          </>)
         ) : (<p> Kein Essen ist da </p>)
       }
 
 
-       <CardItemComponent />
+       {/* <CardItemComponent /> */}
     </div>
    
   )
